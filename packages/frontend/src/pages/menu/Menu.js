@@ -1,22 +1,10 @@
 import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Container, Card, Button } from 'semantic-ui-react';
 import CategoriesComponent from '../../containers/categories/Categories';
 import ItemModalComponent from '../../containers/itemModal/ItemModal';
 import CategoryModalComponent from '../../containers/categoryModal/CategoryModal';
 import ConfirmModalComponent from '../../containers/confirmModal/ConfirmModal';
-
-import {
-  getCategories,
-  getSelectedItem,
-  getIsItemModalopnned,
-  getIsConfirmDeleteItemModalOpenned,
-  getItemCategoryId,
-  getIsCategoryModalopnned,
-  getIsConfirmDeleteCategoryModalOpenned,
-  getSelectedCategory,
-  getUser,
-} from '../../redux/selectors';
 
 import {
   loadCategories,
@@ -35,35 +23,27 @@ import {
   updateItem,
 } from '../../redux/actions/itemActions';
 
+import useMenu from '../../hooks/useMenu';
+
 const MenuPage = () => {
   const dispatch = useDispatch();
-  const categories = useSelector((store) => getCategories(store));
-  const selectedItem = useSelector((store) => getSelectedItem(store));
-  const selectedCategory = useSelector((store) => getSelectedCategory(store));
-  const isItemModalOpenned = useSelector((store) =>
-    getIsItemModalopnned(store)
-  );
-  const isConfirmDeleteItemModalOpened = useSelector((store) =>
-    getIsConfirmDeleteItemModalOpenned(store)
-  );
-
-  const isCategoryModalOpenned = useSelector((store) =>
-    getIsCategoryModalopnned(store)
-  );
-
-  const isConfirmDeleteCategoryModalOpened = useSelector((store) =>
-    getIsConfirmDeleteCategoryModalOpenned(store)
-  );
+  const {
+    categories,
+    selectedCategory,
+    selectedItem,
+    isItemModalOpenned,
+    isConfirmDeleteItemModalOpened,
+    isConfirmDeleteCategoryModalOpened,
+    isCategoryModalOpenned,
+    itemCategoryId,
+    user,
+  } = useMenu();
 
   useEffect(() => {
     if (categories.length === 0) {
       dispatch(loadCategories());
     }
   }, [dispatch, categories]);
-
-  const itemCategoryId = useSelector((store) => getItemCategoryId(store));
-
-  const user = useSelector((store) => getUser(store));
 
   const handleOnItemSaveClicked = (item) => {
     if (selectedItem) {

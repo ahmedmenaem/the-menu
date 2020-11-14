@@ -1,5 +1,4 @@
 import { Switch, Route } from 'react-router-dom';
-import {} from 'semantic-ui-react';
 import MenuPage from '../menu/Menu';
 import NavBarComponent from '../../components/navBar/NavBar';
 

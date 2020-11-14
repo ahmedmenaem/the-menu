@@ -24,6 +24,8 @@ const ItemModalComponent = ({
   useEffect(() => {
     if (item) {
       setItem(item.name, item.price, item.description);
+    } else {
+      setItem();
     }
   }, [item]);
 
@@ -60,6 +62,7 @@ const ItemModalComponent = ({
             <input
               placeholder="Item Name"
               onChange={(e) => setName(e.target.value)}
+              type="text"
               value={name}
             />
           </Form.Field>
@@ -68,6 +71,7 @@ const ItemModalComponent = ({
             <input
               placeholder="Item Price"
               onChange={(e) => setPrice(e.target.value)}
+              type="number"
               value={price}
             />
           </Form.Field>

@@ -7,11 +7,6 @@
     {
       "id": 21281,
       "name": "Salads"
-    },
-    {
-      "name": "cat",
-      "description": "",
-      "id": 80878
     }
   ],
   "users": [
@@ -132,13 +127,6 @@
       "description": "smoked meat is one of the best",
       "price": "20",
       "id": 655888
-    },
-    {
-      "categoryId": 80878,
-      "name": "cat",
-      "description": "cat",
-      "price": "30",
-      "id": 655889
     }
   ]
 }
