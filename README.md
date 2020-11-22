@@ -1,6 +1,6 @@
 # The Menu
 
-is a react web app to display food menu
+is a react web app to display food menu using react and redux
 
 ## Installing Deps
 
